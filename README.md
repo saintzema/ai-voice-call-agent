@@ -136,7 +136,8 @@ ollama pull llama3.2:latest
 
 # Install Piper TTS
 pip install piper-tts
-# Download voice model
+
+# Download voice model (required)
 mkdir -p models
 curl -L -o models/en_US-amy-low.onnx https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/low/en_US-amy-low.onnx
 curl -L -o models/en_US-amy-low.onnx.json https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/low/en_US-amy-low.onnx.json
@@ -154,7 +155,11 @@ ollama pull llama3.2:latest
 
 # Install Piper TTS
 pip install piper-tts
-# Download models manually from https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US/amy/low
+
+# Download voice model (required)
+mkdir -p models
+curl -L -o models/en_US-amy-low.onnx https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/low/en_US-amy-low.onnx
+curl -L -o models/en_US-amy-low.onnx.json https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/amy/low/en_US-amy-low.onnx.json
 ```
 
 ### Enable AI Pipeline
@@ -202,13 +207,14 @@ console.log('TwiML Response:', twiml.toString());
 ```
 voice-agent/
 ├── setup.js              # Main server file
-├── .env                  # Environment variables
+├── .env                  # Environment variables (create from .env.example)
 ├── .env.example          # Template for .env
-├── models/               # Piper TTS models (AI version)
-├── greeting8k.wav       # Demo audio files
-├── followup8k.wav
-└── README.md            # This file
+├── models/               # Piper TTS models (downloaded via setup)
+├── README.md            # This file
+└── .gitignore           # Excludes .env from commits
 ```
+
+**Note:** The `models/` directory and `.env` file are not included in the repo. Follow the setup instructions above to download them.
 
 ## Support
 
